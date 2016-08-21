@@ -138,10 +138,11 @@ interval_data[interval_data$steps==max(interval_data$steps),]</code></pre>
 </div>
 <div id="devise-a-strategy-for-filling-in-all-of-the-missing-values-in-the-dataset-and-create-a-new-dataset-that-is-equal-to-the-original-dataset-but-with-the-missing-data-filled-in." class="section level3">
 <h3>2. Devise a strategy for filling in all of the missing values in the dataset and create a new dataset that is equal to the original dataset but with the missing data filled in.</h3>
+<p>For this exercise, the strategy choses is to replace the missing values using the MEAN of steps per day. The following code creates a new data set using the original data set replacing the missing values with the mead data.</p>
 <pre class="r"><code>##create copy of original data set
 revised_data &lt;- all_data 
 
-##replace missing values with mean of steps data per day
+##Missing values with MEAN of steps data per day
 revised_data$steps[is.na(revised_data$steps)] &lt;- mean(all_data$steps, na.rm=TRUE)
 head(revised_data)</code></pre>
 <pre><code>##     steps       date interval

@@ -89,11 +89,13 @@ There are `r missing_data` rows with missing values in the dataset.
 
 ###2.  Devise a strategy for filling in all of the missing values in the dataset and create a new dataset that is equal to the original dataset but with the missing data filled in. 
 
+For this exercise, the strategy choses is to replace the missing values using the MEAN of steps per day.  The following code creates a new data set using the original data set replacing the missing values with the mead data.
+
 ```{r}
 ##create copy of original data set
 revised_data <- all_data 
 
-##replace missing values with mean of steps data per day
+##Missing values with MEAN of steps data per day
 revised_data$steps[is.na(revised_data$steps)] <- mean(all_data$steps, na.rm=TRUE)
 head(revised_data)
 ```
@@ -114,7 +116,6 @@ hist(totalSteps_new$total_steps,col="green",
 ```
 
 Report the mean and median total number of steps taken per day
-
 
 ```{r results='hide'}
 mean_steps_new <- format(mean(totalSteps_new$total_steps),big.mark=",",nsmall=0)  #mean total steps per day
